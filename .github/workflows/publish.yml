@@ -1,0 +1,79 @@
+name: Build plugin repository
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 4 * * 0'   # semanal
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  REPO_URL: https://nen155.github.io/jellyfin-plugins-repo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install jprm
+        run: pip install jprm
+
+      - name: Checkout MediaOnly
+        uses: actions/checkout@v4
+        with:
+          repository: nen155/Jellyfin.Plugin.MediaOnly
+          path: plugins/Jellyfin.Plugin.MediaOnly
+
+      - name: Checkout GalleryOptimizer
+        uses: actions/checkout@v4
+        with:
+          repository: nen155/Jellyfin.Plugin.GalleryOptimizer
+          path: plugins/Jellyfin.Plugin.GalleryOptimizer
+
+      - name: Checkout PhotoThumbs
+        uses: actions/checkout@v4
+        with:
+          repository: nen155/Jellyfin.Plugin.PhotoThumbs
+          path: plugins/Jellyfin.Plugin.PhotoThumbs
+
+      - name: Build artifacts and manifest
+        run: |
+          set -e
+          mkdir -p artifacts repo
+          jprm repo init repo
+          for p in plugins/*/; do
+            jprm --verbosity=debug plugin build "$p" --output=artifacts
+          done
+          for z in artifacts/*.zip; do
+            jprm --verbosity=debug repo add --url="$REPO_URL" repo "$z"
+          done
+          cp -f artifacts/*.zip repo/ 2>/dev/null || true
+          ls -la repo
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: repo
+
+      - uses: actions/deploy-pages@v4
+        id: deployment
