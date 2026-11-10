@@ -19,11 +19,22 @@ actualización automática.
 
 ## Plugins incluidos
 
-| Plugin | Descripción | Repositorio |
-|---|---|---|
-| Media Only Filter | Ignora en el escaneo archivos que no sean vídeo/imagen, solo en las bibliotecas elegidas. | [Jellyfin.Plugin.MediaOnly](https://github.com/nen155/Jellyfin.Plugin.MediaOnly) |
-| Gallery Optimizer | Redimensiona en servidor las fotos que el visor pide como original y acota los bitmaps que el carrusel retiene en el cliente — pensado para TVs webOS con poca RAM. | [Jellyfin.Plugin.GalleryOptimizer](https://github.com/nen155/Jellyfin.Plugin.GalleryOptimizer) |
-| Photo Thumbnails | Genera portadas-collage para carpetas de fotos y pre-genera miniaturas en caché. | [Jellyfin.Plugin.PhotoThumbs](https://github.com/nen155/Jellyfin.Plugin.PhotoThumbs) |
+| Logo | Plugin | Descripción | Repositorio |
+|---|---|---|---|
+| <img src="docs/logos/media-only.png" width="56" alt="Media Only Filter"> | Media Only Filter | Ignora en el escaneo archivos que no sean vídeo/imagen, solo en las bibliotecas elegidas. | [Jellyfin.Plugin.MediaOnly](https://github.com/nen155/Jellyfin.Plugin.MediaOnly) |
+| <img src="docs/logos/gallery-optimizer.png" width="56" alt="Gallery Optimizer"> | Gallery Optimizer | Redimensiona en servidor las fotos que el visor pide como original y acota los bitmaps que el carrusel retiene en el cliente — pensado para TVs webOS con poca RAM. | [Jellyfin.Plugin.GalleryOptimizer](https://github.com/nen155/Jellyfin.Plugin.GalleryOptimizer) |
+| <img src="docs/logos/photo-thumbs.png" width="56" alt="Photo Thumbnails"> | Photo Thumbnails | Genera portadas-collage para carpetas de fotos y pre-genera miniaturas en caché. | [Jellyfin.Plugin.PhotoThumbs](https://github.com/nen155/Jellyfin.Plugin.PhotoThumbs) |
+
+## Otros plugins
+
+Todavía no forman parte de este catálogo; se instalan manualmente compilando el
+repositorio y copiando el `.dll` a la carpeta de plugins de Jellyfin.
+
+| Logo | Plugin | Descripción | Repositorio |
+|---|---|---|---|
+| <img src="docs/logos/media-organizer.png" width="56" alt="Media Organizer"> | Media Organizer | Normaliza nombres de series y películas para que Jellyfin descargue sus metadatos. | [Jellyfin.Plugin.MediaOrganizer](https://github.com/nen155/Jellyfin.Plugin.MediaOrganizer) |
+| <img src="docs/logos/photo-guard.png" width="56" alt="Photo Guard"> | Photo Guard | Detecta fotos sensibles y las mueve a una bóveda oculta protegida por contraseña. | [Jellyfin.Plugin.PhotoGuard](https://github.com/nen155/Jellyfin.Plugin.PhotoGuard) |
+| <img src="docs/logos/torrent.png" width="56" alt="Torrent Search"> | Torrent Search | Buscador de torrents en las webs que configures, con envío directo al cliente de descargas. | [Jellyfin.Plugin.Torrent](https://github.com/nen155/Jellyfin.Plugin.Torrent) |
 
 ## Regenerar el repositorio
 
