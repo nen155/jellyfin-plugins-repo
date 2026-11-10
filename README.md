@@ -34,7 +34,7 @@ repositorio y copiando el `.dll` a la carpeta de plugins de Jellyfin.
 |---|---|---|---|
 | <img src="docs/logos/media-organizer.png" width="56" alt="Media Organizer"> | Media Organizer | Normaliza nombres de series y películas para que Jellyfin descargue sus metadatos. | [Jellyfin.Plugin.MediaOrganizer](https://github.com/nen155/Jellyfin.Plugin.MediaOrganizer) |
 | <img src="docs/logos/photo-guard.png" width="56" alt="Photo Guard"> | Photo Guard | Detecta fotos sensibles y las mueve a una bóveda oculta protegida por contraseña. | [Jellyfin.Plugin.PhotoGuard](https://github.com/nen155/Jellyfin.Plugin.PhotoGuard) |
-| <img src="docs/logos/torrent.png" width="56" alt="Torrent Search"> | Torrent Search | Buscador de torrents en las webs que configures, con envío directo al cliente de descargas. | [Jellyfin.Plugin.Torrent](https://github.com/nen155/Jellyfin.Plugin.Torrent) |
+| <img src="docs/logos/torrent.png" width="56" alt="Torrent Search"> | Torrent Search | Buscador de torrents en las webs que configures, con envío directo al cliente de descargas. | Sin publicar |
 
 ## Regenerar el repositorio
 
