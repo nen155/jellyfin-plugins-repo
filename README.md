@@ -58,3 +58,7 @@ jprm repo add --url=https://nen155.github.io/jellyfin-plugins-repo .\repo .\arti
 2. Push a `main` del repo del plugin.
 3. Ejecuta el workflow de este repo (o espera al cron).
 4. Jellyfin ofrecerá la actualización en **Panel → Plugins**.
+
+## Autor
+
+**Emilio Chica Jiménez** — [miliolab.com](https://miliolab.com)
