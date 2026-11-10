@@ -22,7 +22,7 @@ actualización automática.
 | Plugin | Descripción | Repositorio |
 |---|---|---|
 | Media Only Filter | Ignora en el escaneo archivos que no sean vídeo/imagen, solo en las bibliotecas elegidas. | [Jellyfin.Plugin.MediaOnly](https://github.com/nen155/Jellyfin.Plugin.MediaOnly) |
-| Gallery Optimizer | Limita el tamaño de las imágenes servidas y libera bitmaps del carrusel — pensado para TVs webOS con poca RAM. | [Jellyfin.Plugin.GalleryOptimizer](https://github.com/nen155/Jellyfin.Plugin.GalleryOptimizer) |
+| Gallery Optimizer | Redimensiona en servidor las fotos que el visor pide como original y acota los bitmaps que el carrusel retiene en el cliente — pensado para TVs webOS con poca RAM. | [Jellyfin.Plugin.GalleryOptimizer](https://github.com/nen155/Jellyfin.Plugin.GalleryOptimizer) |
 | Photo Thumbnails | Genera portadas-collage para carpetas de fotos y pre-genera miniaturas en caché. | [Jellyfin.Plugin.PhotoThumbs](https://github.com/nen155/Jellyfin.Plugin.PhotoThumbs) |
 
 ## Regenerar el repositorio
@@ -30,6 +30,16 @@ actualización automática.
 El workflow se ejecuta semanalmente, en cada push a `main`, o manualmente
 desde **Actions → Build plugin repository → Run workflow**. Coge el `main`
 de cada repo de plugin, compila con jprm y redeploya el manifest.
+
+Para probarlo en local (necesita .NET 10 y Python 3.8+):
+
+```powershell
+pip install jprm
+$env:PYTHONUTF8 = "1"   # sin esto, en Windows jprm lee el YAML como cp1252
+jprm plugin build .\Jellyfin.Plugin.GalleryOptimizer --output=.\artifacts
+jprm repo init .\repo
+jprm repo add --url=https://nen155.github.io/jellyfin-plugins-repo .\repo .\artifacts\*.zip
+```
 
 ## Publicar una nueva versión de un plugin
 
