@@ -57,6 +57,12 @@ jobs:
           repository: nen155/Jellyfin.Plugin.PhotoThumbs
           path: plugins/Jellyfin.Plugin.PhotoThumbs
 
+      - name: Checkout Torrent
+        uses: actions/checkout@v4
+        with:
+          repository: nen155/Jellyfin.Plugin.Torrent
+          path: plugins/Jellyfin.Plugin.Torrent
+
       - name: Build artifacts and manifest
         run: |
           set -e
